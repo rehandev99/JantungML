@@ -208,13 +208,3 @@ if st.button("🔍 Prediksi"):
     ax.bar(X.columns, user_input[0])
     ax.set_xticklabels(X.columns, rotation=90)
     st.pyplot(fig)
-
-    # =============================
-    # SIMPAN RIWAYAT
-    # =============================
-    if st.button("💾 Simpan Hasil Prediksi"):
-        result = pd.DataFrame(user_input, columns=X.columns)
-        result["prediction"] = prediction
-        result["probability"] = probability
-        result.to_csv("riwayat_prediksi.csv", mode="a", header=False, index=False)
-        st.success("Hasil prediksi berhasil disimpan!")
